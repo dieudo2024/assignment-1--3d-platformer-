@@ -1,0 +1,275 @@
+[gd_scene format=3 uid="uid://c045flqeay57l"]
+
+[ext_resource type="PackedScene" uid="uid://bruy8fe3nj7h1" path="res://Scenes/Main_Character.tscn" id="1_52fb6"]
+
+[sub_resource type="Environment" id="Environment_8d8d4"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8d8d4"]
+size = Vector2(20, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_52fb6"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sfe0v"]
+points = PackedVector3Array(10.154754, 0.15866803, 10.154754, -10.154754, -0.15866803, -10.154754, -10.154754, 0.15866803, -10.154754, 10.154754, -0.15866803, -10.154754, -10.154754, -0.15866803, 10.154754, -10.154754, 0.15866803, 10.154754, 10.154754, 0.15866803, -10.154754, 10.154754, -0.15866803, 10.154754)
+
+[sub_resource type="BoxMesh" id="BoxMesh_52fb6"]
+size = Vector3(1, 1.050354, 1.8064251)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6l7je"]
+size = Vector3(1, 1.0224609, 1.795166)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6l7je"]
+size = Vector3(1, 1.050354, 1.8064251)
+
+[sub_resource type="BoxMesh" id="BoxMesh_m1efj"]
+size = Vector3(1, 1.050354, 1.8064251)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mai8y"]
+size = Vector3(1, 1, 1.795166)
+
+[sub_resource type="BoxMesh" id="BoxMesh_maf8m"]
+size = Vector3(1, 1.050354, 1.8064251)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_huasi"]
+size = Vector3(1, 1, 1.795166)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6ev3c"]
+size = Vector3(1, 0.4948883, 1.8064251)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_maf8m"]
+size = Vector3(1, 0.47540283, 1.795166)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jv6wh"]
+size = Vector3(1, 1.050354, 1.8064251)
+
+[sub_resource type="BoxMesh" id="BoxMesh_iacmt"]
+size = Vector3(1, 0.61880493, 2.2976217)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6ev3c"]
+size = Vector3(1, 0.6242676, 2.289093)
+
+[sub_resource type="BoxMesh" id="BoxMesh_x6ack"]
+size = Vector3(1, 1.1309814, 1.0004039)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_iacmt"]
+points = PackedVector3Array(0.5, 0.55840933, 0.49980003, -0.5, -0.56439763, -0.5002, 0.5, -0.55840933, -0.49486667, -0.5, 0.56439763, -0.5002, -0.49506664, -0.5588584, 0.5002, -0.49506664, 0.5588584, 0.5002, 0.5, 0.55840933, -0.49486667, 0.5, -0.55840933, 0.49980003)
+
+[sub_resource type="BoxMesh" id="BoxMesh_l5x5y"]
+size = Vector3(1, 1, 1.2436523)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q8ct7"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3c3hc"]
+height = 1.175293
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dcntn"]
+height = 1.1813965
+
+[node name="Main_Scene" type="Node3D" unique_id=770084411]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1323838324]
+environment = SubResource("Environment_8d8d4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1883066547]
+transform = Transform3D(0.9975297, 0.03780764, -0.05920403, 0.019767795, 0.6576644, 0.75305164, 0.06740749, -0.75236166, 0.6552924, 0, 0, 4.6542535)
+
+[node name="CharacterBody3D" parent="." unique_id=1718384821 instance=ExtResource("1_52fb6")]
+
+[node name="Start_platform" type="Node3D" parent="." unique_id=216573936]
+editor_description = "(tutorial, no 
+hazards) "
+
+[node name="Platform" type="MeshInstance3D" parent="Start_platform" unique_id=26669086]
+mesh = SubResource("PlaneMesh_8d8d4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Start_platform/Platform" unique_id=678029333]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Start_platform/Platform/StaticBody3D" unique_id=86908792]
+transform = Transform3D(20, 0, 0, 0, 0.1, 0, 0, 0, 20, 0, 0, 0)
+shape = SubResource("BoxShape3D_52fb6")
+
+[node name="ControlsLabel3D" type="Label3D" parent="Start_platform" unique_id=1176407165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02015686, 1.251544, -0.27771604)
+text = "Press:
+W - to move Forward             
+S - to move Backward
+A - to move to the Left            
+D - to move to the Right
+Space - to Jump"
+
+[node name="Simple_section" type="Node3D" parent="." unique_id=526622564]
+
+[node name="Simple_section" type="MeshInstance3D" parent="Simple_section" unique_id=88023814]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.913437, -0.2160685, -0.14512014)
+mesh = SubResource("PlaneMesh_8d8d4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Simple_section/Simple_section" unique_id=929227401]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Simple_section/Simple_section/StaticBody3D" unique_id=1300409736]
+shape = SubResource("ConvexPolygonShape3D_sfe0v")
+
+[node name="Obstacle" type="MeshInstance3D" parent="Simple_section" unique_id=152516369]
+transform = Transform3D(0.42643762, 0, 0, 0, 2.4445825, 0, 0, 0, 3.7932725, 20.273457, 1.2879273, 6.544253)
+mesh = SubResource("BoxMesh_52fb6")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Simple_section/Obstacle" unique_id=472011124]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Simple_section/Obstacle/StaticBody3D" unique_id=849973406]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.011230469, 0)
+shape = SubResource("BoxShape3D_6l7je")
+
+[node name="Obstacle2" type="MeshInstance3D" parent="Simple_section" unique_id=367189472]
+transform = Transform3D(0.42643762, 0, 0, 0, 2.4445825, 0, 0, 0, 3.7932725, 26.59824, 1.1893771, 4.8929863)
+mesh = SubResource("BoxMesh_6l7je")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Simple_section/Obstacle2" unique_id=1649639365]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Simple_section/Obstacle2/StaticBody3D" unique_id=1527049248]
+shape = SubResource("BoxShape3D_6l7je")
+
+[node name="Obstacle8" type="MeshInstance3D" parent="Simple_section" unique_id=1452766164]
+transform = Transform3D(0.42643762, 0, 0, 0, 2.4445825, 0, 0, 0, 3.7932725, 27.868116, 1.4036567, -5.3418465)
+mesh = SubResource("BoxMesh_m1efj")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Simple_section/Obstacle8" unique_id=2021862704]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Simple_section/Obstacle8/StaticBody3D" unique_id=874701026]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00744617)
+shape = SubResource("BoxShape3D_mai8y")
+
+[node name="Obstacle7" type="MeshInstance3D" parent="Simple_section" unique_id=1531192513]
+transform = Transform3D(0.3034506, 0, 2.6651165, 0, 2.4445827, 0, -0.29961094, 0, 2.6992714, 26.862183, 1.4036566, -0.5349989)
+mesh = SubResource("BoxMesh_maf8m")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Simple_section/Obstacle7" unique_id=879122013]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Simple_section/Obstacle7/StaticBody3D" unique_id=1785498147]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00744617)
+shape = SubResource("BoxShape3D_huasi")
+
+[node name="Obstacle5" type="MeshInstance3D" parent="Simple_section" unique_id=1682891816]
+transform = Transform3D(0.42643762, 0, 0, 0, 2.4445825, 0, 0, 0, 3.7932725, 20.273457, 0.5104361, -2.7405038)
+mesh = SubResource("BoxMesh_6ev3c")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Simple_section/Obstacle5" unique_id=788704661]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Simple_section/Obstacle5/StaticBody3D" unique_id=724322471]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0066223145, 0)
+shape = SubResource("BoxShape3D_maf8m")
+
+[node name="Obstacle3" type="MeshInstance3D" parent="Simple_section" unique_id=2107941578]
+transform = Transform3D(0.081532426, 0, -3.7232952, 0, 2.4445825, 0, 0.4185708, 0, 0.725252, 22.641443, 1.4036566, -6.7053885)
+mesh = SubResource("BoxMesh_jv6wh")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Simple_section/Obstacle3" unique_id=1937261959]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Simple_section/Obstacle3/StaticBody3D" unique_id=1308427493]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00744617)
+shape = SubResource("BoxShape3D_6l7je")
+
+[node name="Obstacle6" type="MeshInstance3D" parent="Simple_section" unique_id=669180326]
+transform = Transform3D(0.42643762, 0, 0, 0, 2.4445825, 0, 0, 0, 3.7932725, 31.544384, 0.87617797, 3.921353)
+mesh = SubResource("BoxMesh_iacmt")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Simple_section/Obstacle6" unique_id=530484733]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Simple_section/Obstacle6/StaticBody3D" unique_id=1580846877]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.009887695, 0.004226327)
+shape = SubResource("BoxShape3D_6ev3c")
+
+[node name="Obstacle4" type="MeshInstance3D" parent="Simple_section" unique_id=1997494325]
+transform = Transform3D(-0.008053829, 0, 3.7926316, 0, 2.4445822, 0, -0.43809313, 0, -0.06972309, 21.868284, 1.3757529, 2.9972785)
+mesh = SubResource("BoxMesh_x6ack")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Simple_section/Obstacle4" unique_id=2123487261]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Simple_section/Obstacle4/StaticBody3D" unique_id=706733304]
+transform = Transform3D(0.99999964, 0, -2.9802322e-08, 0, 0.9999999, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_iacmt")
+
+[node name="Obstacle9" type="MeshInstance3D" parent="Simple_section" unique_id=1107176156]
+transform = Transform3D(2.9998965, 0, 0.031427752, 0, 2.4449997, 0, -0.02485718, 0, 3.7928698, 33.54342, 1.4036566, -5.5663204)
+mesh = SubResource("BoxMesh_l5x5y")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Simple_section/Obstacle9" unique_id=1948747988]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Simple_section/Obstacle9/StaticBody3D" unique_id=1599830020]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00744617)
+shape = SubResource("BoxShape3D_q8ct7")
+
+[node name="Obstacle10" type="MeshInstance3D" parent="Simple_section" unique_id=755284605]
+transform = Transform3D(3, 0, -8.28376e-09, 0, 2.445, 0, 6.5518804e-09, 0, 3.793, 35.221703, 1.3733977, 7.7547684)
+mesh = SubResource("CylinderMesh_3c3hc")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Simple_section/Obstacle10" unique_id=1766704741]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Simple_section/Obstacle10/StaticBody3D" unique_id=639399811]
+transform = Transform3D(0.99999964, 0, 4.440892e-16, 0, 0.9999999, 0, -1.110223e-15, 0, 1, 0, 0.00036621094, 0)
+shape = SubResource("CylinderShape3D_dcntn")
+
+[node name="Dynamic_section" type="Node3D" parent="." unique_id=513514396]
+editor_description = "Moving platforms:
+At least two moving platforms that require timing and coordination to cross, leading to 
+another static section.
+o Purpose: Tests the player’s ability to coordinate movement and perform accurate 
+jumps."
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.36945, 0, 0)
+
+[node name="Dynamic_section_platform" type="MeshInstance3D" parent="Dynamic_section" unique_id=888805758]
+transform = Transform3D(0.48392612, 0, 0, 0, 1, 0, 0, 0, 1, -6.4387207, 0, 0)
+mesh = SubResource("PlaneMesh_8d8d4")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Dynamic_section/Dynamic_section_platform" unique_id=1606559493]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Dynamic_section/Dynamic_section_platform/StaticBody3D" unique_id=424519804]
+shape = SubResource("ConvexPolygonShape3D_sfe0v")
+
+[node name="Dynamic_section_platform2" type="MeshInstance3D" parent="Dynamic_section" unique_id=1968221182]
+transform = Transform3D(0.44694299, 0, 0, 0, 1, 0, 0, 0, 1, 27.147694, 0, 0)
+mesh = SubResource("PlaneMesh_8d8d4")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Dynamic_section/Dynamic_section_platform2" unique_id=1378910309]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Dynamic_section/Dynamic_section_platform2/StaticBody3D" unique_id=407500714]
+shape = SubResource("ConvexPolygonShape3D_sfe0v")
+
+[node name="Dynamic_section_platform3" type="MeshInstance3D" parent="Dynamic_section" unique_id=834420192]
+transform = Transform3D(0.46699995, 0, 0, 0, 1, 0, 0, 0, 1, 12.034054, 0, 0)
+mesh = SubResource("PlaneMesh_8d8d4")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Dynamic_section/Dynamic_section_platform3" unique_id=2085986464]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Dynamic_section/Dynamic_section_platform3/StaticBody3D" unique_id=552989081]
+shape = SubResource("ConvexPolygonShape3D_sfe0v")
+
+[node name="Dangerous_section" type="MeshInstance3D" parent="." unique_id=770265559]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.91467, 0, 0)
+mesh = SubResource("PlaneMesh_8d8d4")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Dangerous_section" unique_id=756703750]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Dangerous_section/StaticBody3D" unique_id=1870940796]
+shape = SubResource("ConvexPolygonShape3D_sfe0v")
+
+[node name="End_platform" type="MeshInstance3D" parent="." unique_id=1919940485]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160.98141, 0, 0)
+mesh = SubResource("PlaneMesh_8d8d4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="End_platform" unique_id=715425457]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="End_platform/StaticBody3D" unique_id=592466233]
+shape = SubResource("ConvexPolygonShape3D_sfe0v")

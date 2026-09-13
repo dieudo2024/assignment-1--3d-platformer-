@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ctd6y6f5nt5ll" path="res://Scripts/character_body_3d.gd" id="1_o8cir"]
 [ext_resource type="Texture2D" uid="uid://b8n16pxn6vcri" path="res://Assets/cac-1788370838380_0.png" id="2_m6q3y"]
 [ext_resource type="Texture2D" uid="uid://bbbs251i2wnwm" path="res://Assets/cac-1788370838380_1.png" id="3_fla84"]
+[ext_resource type="Script" uid="uid://djsve5gq1trdj" path="res://Scripts/camera_3d.gd" id="4_m6q3y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bn31u"]
 resource_name = "Ch39_Body"
@@ -3367,7 +3368,7 @@ metadata/extras = {
 "parentMatrixWorld": {
 "elements": [0.9924204199887284, -0.1228803118195899, -0.00146266884132937, 0.0, 0.12288023586221827, 0.9924214971001672, -0.00014202629636047, 0.0, 0.00146903623667088, -3.878329023609e-05, 0.9999989202136452, 0.0, -0.14501378338183457, 5.194531726584746, 3.5083332e-07, 1.0]
 },
-"preRotation": [9.98336617923598e-07, 7.951386856267357e-16, 3.180554742506941e-15],
+"preRotation": [9.98336617923598e-07, 7.951386856267358e-16, 3.180554742506941e-15],
 "scale": [1.0, 0.9999999999999996, 1.0000000000000002],
 "translation": [-0.24296106910577464, 4.462310394284735, 4.792767072103744e-08]
 }
@@ -3561,7 +3562,7 @@ metadata/extras = {
 },
 "preRotation": [-8.49254804731193e-10, -9.056349269906977e-15, -9.939232672109172e-17],
 "scale": [1.0000000000000004, 1.0000000000000002, 1.0],
-"translation": [-2.435243118270591e-09, 8.118059171619102, 7.163931670106645e-10]
+"translation": [-2.435243118270591e-09, 8.118059171619102, 7.163931670106644e-10]
 }
 }
 
@@ -3598,5 +3599,11 @@ parameters/conditions/is_walking = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.022726059, 0.9044914, 0.002652347)
 shape = SubResource("CapsuleShape3D_8d8d4")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1337124094]
+[node name="CameraPivot" type="Node3D" parent="." unique_id=240039047]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21387601, 1.2693297, 2.1425438)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot" unique_id=214219206]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D" unique_id=1337124094]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21387601, 1.2693297, 2.1425438)
+script = ExtResource("4_m6q3y")

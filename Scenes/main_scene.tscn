@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c045flqeay57l"]
 
 [ext_resource type="PackedScene" uid="uid://bruy8fe3nj7h1" path="res://Scenes/Main_Character.tscn" id="1_52fb6"]
+[ext_resource type="Script" uid="uid://chnloxl1jse1i" path="res://Scripts/dynamic_section_platform.gd" id="2_6l7je"]
 
 [sub_resource type="Environment" id="Environment_8d8d4"]
 
@@ -74,10 +75,15 @@ environment = SubResource("Environment_8d8d4")
 transform = Transform3D(0.9975297, 0.03780764, -0.05920403, 0.019767795, 0.6576644, 0.75305164, 0.06740749, -0.75236166, 0.6552924, 0, 0, 4.6542535)
 
 [node name="CharacterBody3D" parent="." unique_id=1718384821 instance=ExtResource("1_52fb6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.57276, 0, 0)
+visible = false
 
 [node name="Start_platform" type="Node3D" parent="." unique_id=216573936]
 editor_description = "(tutorial, no 
 hazards) "
+
+[node name="Marker3D" type="Marker3D" parent="Start_platform" unique_id=1019081684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8562317, 7.993698, 1.6296701)
 
 [node name="Platform" type="MeshInstance3D" parent="Start_platform" unique_id=26669086]
 mesh = SubResource("PlaneMesh_8d8d4")
@@ -225,38 +231,35 @@ o Purpose: Tests the player’s ability to coordinate movement and perform accur
 jumps."
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.36945, 0, 0)
 
-[node name="Dynamic_section_platform" type="MeshInstance3D" parent="Dynamic_section" unique_id=888805758]
-transform = Transform3D(0.48392612, 0, 0, 0, 1, 0, 0, 0, 1, -6.4387207, 0, 0)
-mesh = SubResource("PlaneMesh_8d8d4")
+[node name="Dynamic_section_platform" type="AnimatableBody3D" parent="Dynamic_section" unique_id=1243800446]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7362823, 0, 0)
+script = ExtResource("2_6l7je")
 metadata/_edit_group_ = true
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Dynamic_section/Dynamic_section_platform" unique_id=1606559493]
+[node name="Dynamic_section_platform" type="MeshInstance3D" parent="Dynamic_section/Dynamic_section_platform" unique_id=888805758]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+mesh = SubResource("PlaneMesh_8d8d4")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Dynamic_section/Dynamic_section_platform/StaticBody3D" unique_id=424519804]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Dynamic_section/Dynamic_section_platform" unique_id=424519804]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_sfe0v")
 
-[node name="Dynamic_section_platform2" type="MeshInstance3D" parent="Dynamic_section" unique_id=1968221182]
-transform = Transform3D(0.44694299, 0, 0, 0, 1, 0, 0, 0, 1, 27.147694, 0, 0)
-mesh = SubResource("PlaneMesh_8d8d4")
+[node name="Dynamic_section_platform2" type="AnimatableBody3D" parent="Dynamic_section" unique_id=1346405009]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 12.015911, 0, 0)
+script = ExtResource("2_6l7je")
+move_offset = Vector3(0, 2, 0)
+phase_offset = 1.6
 metadata/_edit_group_ = true
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Dynamic_section/Dynamic_section_platform2" unique_id=1378910309]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Dynamic_section/Dynamic_section_platform2/StaticBody3D" unique_id=407500714]
-shape = SubResource("ConvexPolygonShape3D_sfe0v")
-
-[node name="Dynamic_section_platform3" type="MeshInstance3D" parent="Dynamic_section" unique_id=834420192]
-transform = Transform3D(0.46699995, 0, 0, 0, 1, 0, 0, 0, 1, 12.034054, 0, 0)
+[node name="Dynamic_section_platform2" type="MeshInstance3D" parent="Dynamic_section/Dynamic_section_platform2" unique_id=1968221182]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 mesh = SubResource("PlaneMesh_8d8d4")
-metadata/_edit_group_ = true
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Dynamic_section/Dynamic_section_platform3" unique_id=2085986464]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Dynamic_section/Dynamic_section_platform3/StaticBody3D" unique_id=552989081]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Dynamic_section/Dynamic_section_platform2" unique_id=407500714]
 shape = SubResource("ConvexPolygonShape3D_sfe0v")
 
 [node name="Dangerous_section" type="MeshInstance3D" parent="." unique_id=770265559]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.91467, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.023, 0, 0)
 mesh = SubResource("PlaneMesh_8d8d4")
 metadata/_edit_group_ = true
 
@@ -266,7 +269,7 @@ metadata/_edit_group_ = true
 shape = SubResource("ConvexPolygonShape3D_sfe0v")
 
 [node name="End_platform" type="MeshInstance3D" parent="." unique_id=1919940485]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160.98141, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.19185, 0, 0)
 mesh = SubResource("PlaneMesh_8d8d4")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="End_platform" unique_id=715425457]

@@ -3,11 +3,19 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 7.0
 const ROTATION_SPEED = 12.0
+## If the player's Y position drops below this, they've fallen off the
+## course and should be sent back to the spawn point.
+const FALL_LIMIT = -20.0
 
 @onready var camera_pivot: Node3D = $CameraPivot
 @onready var aux_scene: Node3D = $AuxScene
 
 func _physics_process(delta: float) -> void:
+	
+		# Fell off the world -> respawn immediately, skip the rest of this frame.
+	if global_position.y < FALL_LIMIT:
+		GameManager.respawn_player()
+		return
 	# Add gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta

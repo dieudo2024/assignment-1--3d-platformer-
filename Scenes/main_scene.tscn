@@ -25,20 +25,23 @@ size = Vector2(20, 20)
 [sub_resource type="BoxShape3D" id="BoxShape3D_m6q3y"]
 size = Vector3(19.98822, 0.08332825, 19.998909)
 
-[sub_resource type="BoxMesh" id="BoxMesh_52fb6"]
+[sub_resource type="BoxMesh" id="BoxMesh_mai8y"]
 size = Vector3(1, 1.050354, 1.6009665)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6l7je"]
-size = Vector3(1, 1.0224609, 1.7916031)
+size = Vector3(1, 1.0224609, 1.5934346)
 
 [sub_resource type="BoxMesh" id="BoxMesh_6l7je"]
 size = Vector3(1, 1.050354, 1.8064251)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_drdnd"]
+size = Vector3(1, 1.0224609, 1.8058674)
 
 [sub_resource type="BoxMesh" id="BoxMesh_m1efj"]
 size = Vector3(1, 1.050354, 1.8064251)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mai8y"]
-size = Vector3(1, 1, 1.7910156)
+size = Vector3(1, 1.0559082, 1.800293)
 
 [sub_resource type="BoxMesh" id="BoxMesh_maf8m"]
 size = Vector3(1, 1.050354, 1.8064251)
@@ -159,13 +162,13 @@ shape = SubResource("BoxShape3D_m6q3y")
 
 [node name="Obstacle" type="MeshInstance3D" parent="Simple_section" unique_id=152516369]
 transform = Transform3D(0.523, 0, 0, 0, 3, 0, 0, 0, 4.654, 20.273457, 1.2879273, 6.0661507)
-mesh = SubResource("BoxMesh_52fb6")
+mesh = SubResource("BoxMesh_mai8y")
 metadata/_edit_group_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Simple_section/Obstacle" unique_id=472011124]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Simple_section/Obstacle/StaticBody3D" unique_id=849973406]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.003616333)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.002789259)
 shape = SubResource("BoxShape3D_6l7je")
 
 [node name="Obstacle2" type="MeshInstance3D" parent="Simple_section" unique_id=367189472]
@@ -176,7 +179,8 @@ metadata/_edit_group_ = true
 [node name="StaticBody3D" type="StaticBody3D" parent="Simple_section/Obstacle2" unique_id=1649639365]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Simple_section/Obstacle2/StaticBody3D" unique_id=1527049248]
-shape = SubResource("BoxShape3D_6l7je")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0005502701)
+shape = SubResource("BoxShape3D_drdnd")
 
 [node name="Obstacle8" type="MeshInstance3D" parent="Simple_section" unique_id=1452766164]
 transform = Transform3D(0.523, 0, 0, 0, 3, 0, 0, 0, 4.654, 27.868116, 1.4036567, -5.3418465)
@@ -186,7 +190,7 @@ metadata/_edit_group_ = true
 [node name="StaticBody3D" type="StaticBody3D" parent="Simple_section/Obstacle8" unique_id=2021862704]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Simple_section/Obstacle8/StaticBody3D" unique_id=874701026]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.005371213)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.006958008, 0.0007327795)
 shape = SubResource("BoxShape3D_mai8y")
 
 [node name="Obstacle7" type="MeshInstance3D" parent="Simple_section" unique_id=1531192513]
@@ -219,7 +223,7 @@ metadata/_edit_group_ = true
 [node name="StaticBody3D" type="StaticBody3D" parent="Simple_section/Obstacle3" unique_id=1937261959]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Simple_section/Obstacle3/StaticBody3D" unique_id=1308427493]
-transform = Transform3D(0.9999999, 0, 3.5762787e-07, 0, 1, 0, -1.8626451e-09, 0, 0.99999976, 1.9073486e-06, 0, -0.0005617142)
+transform = Transform3D(0.9999999, 0, 3.5762787e-07, 0, 1, 0, -1.8626451e-09, 0, 0.99999976, 6.67572e-06, 0, 0.0006184578)
 shape = SubResource("BoxShape3D_6l7je")
 
 [node name="Obstacle6" type="MeshInstance3D" parent="Simple_section" unique_id=669180326]

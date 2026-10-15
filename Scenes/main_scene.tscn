@@ -22,14 +22,14 @@ size = Vector2(20, 20)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_52fb6"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sfe0v"]
-points = PackedVector3Array(10.154754, 0.15866803, 10.154754, -10.154754, -0.15866803, -10.154754, -10.154754, 0.15866803, -10.154754, 10.154754, -0.15866803, -10.154754, -10.154754, -0.15866803, 10.154754, -10.154754, 0.15866803, 10.154754, 10.154754, 0.15866803, -10.154754, 10.154754, -0.15866803, 10.154754)
+[sub_resource type="BoxShape3D" id="BoxShape3D_m6q3y"]
+size = Vector3(19.98822, 0.08332825, 19.998909)
 
 [sub_resource type="BoxMesh" id="BoxMesh_52fb6"]
 size = Vector3(1, 1.050354, 1.6009665)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6l7je"]
-size = Vector3(1, 1.0224609, 1.7027588)
+size = Vector3(1, 1.0224609, 1.7916031)
 
 [sub_resource type="BoxMesh" id="BoxMesh_6l7je"]
 size = Vector3(1, 1.050354, 1.8064251)
@@ -38,7 +38,7 @@ size = Vector3(1, 1.050354, 1.8064251)
 size = Vector3(1, 1.050354, 1.8064251)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mai8y"]
-size = Vector3(1, 1, 1.795166)
+size = Vector3(1, 1, 1.7910156)
 
 [sub_resource type="BoxMesh" id="BoxMesh_maf8m"]
 size = Vector3(1, 1.050354, 1.8064251)
@@ -59,7 +59,7 @@ size = Vector3(1, 1.050354, 1.8064251)
 size = Vector3(1, 0.61880493, 2.2976217)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6ev3c"]
-size = Vector3(1, 0.6242676, 2.289093)
+size = Vector3(1, 0.6242676, 2.2924957)
 
 [sub_resource type="BoxMesh" id="BoxMesh_x6ack"]
 size = Vector3(1, 1.1309814, 1.0004039)
@@ -68,7 +68,7 @@ size = Vector3(1, 1.1309814, 1.0004039)
 points = PackedVector3Array(0.5, 0.55840933, 0.49980003, -0.5, -0.56439763, -0.5002, 0.5, -0.55840933, -0.49486667, -0.5, 0.56439763, -0.5002, -0.49506664, -0.5588584, 0.5002, -0.49506664, 0.5588584, 0.5002, 0.5, 0.55840933, -0.49486667, 0.5, -0.55840933, 0.49980003)
 
 [sub_resource type="BoxMesh" id="BoxMesh_l5x5y"]
-size = Vector3(1, 1, 0.6320801)
+size = Vector3(1, 0.99316406, 0.9779358)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q8ct7"]
 
@@ -77,6 +77,9 @@ height = 1.175293
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_dcntn"]
 height = 1.1813965
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sfe0v"]
+points = PackedVector3Array(10.154754, 0.15866803, 10.154754, -10.154754, -0.15866803, -10.154754, -10.154754, 0.15866803, -10.154754, 10.154754, -0.15866803, -10.154754, -10.154754, -0.15866803, 10.154754, -10.154754, 0.15866803, 10.154754, 10.154754, 0.15866803, -10.154754, 10.154754, -0.15866803, 10.154754)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3c3hc"]
 albedo_color = Color(1, 0, 0, 1)
@@ -151,7 +154,8 @@ mesh = SubResource("PlaneMesh_8d8d4")
 [node name="StaticBody3D" type="StaticBody3D" parent="Simple_section/Platform" unique_id=929227401]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Simple_section/Platform/StaticBody3D" unique_id=1300409736]
-shape = SubResource("ConvexPolygonShape3D_sfe0v")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016998291, 0.034248352, 0.033924103)
+shape = SubResource("BoxShape3D_m6q3y")
 
 [node name="Obstacle" type="MeshInstance3D" parent="Simple_section" unique_id=152516369]
 transform = Transform3D(0.523, 0, 0, 0, 3, 0, 0, 0, 4.654, 20.273457, 1.2879273, 6.0661507)
@@ -161,7 +165,7 @@ metadata/_edit_group_ = true
 [node name="StaticBody3D" type="StaticBody3D" parent="Simple_section/Obstacle" unique_id=472011124]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Simple_section/Obstacle/StaticBody3D" unique_id=849973406]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.011230469, -0.046203613)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.003616333)
 shape = SubResource("BoxShape3D_6l7je")
 
 [node name="Obstacle2" type="MeshInstance3D" parent="Simple_section" unique_id=367189472]
@@ -182,7 +186,7 @@ metadata/_edit_group_ = true
 [node name="StaticBody3D" type="StaticBody3D" parent="Simple_section/Obstacle8" unique_id=2021862704]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Simple_section/Obstacle8/StaticBody3D" unique_id=874701026]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00744617)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.005371213)
 shape = SubResource("BoxShape3D_mai8y")
 
 [node name="Obstacle7" type="MeshInstance3D" parent="Simple_section" unique_id=1531192513]
@@ -215,7 +219,7 @@ metadata/_edit_group_ = true
 [node name="StaticBody3D" type="StaticBody3D" parent="Simple_section/Obstacle3" unique_id=1937261959]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Simple_section/Obstacle3/StaticBody3D" unique_id=1308427493]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00744617)
+transform = Transform3D(0.9999999, 0, 3.5762787e-07, 0, 1, 0, -1.8626451e-09, 0, 0.99999976, 1.9073486e-06, 0, -0.0005617142)
 shape = SubResource("BoxShape3D_6l7je")
 
 [node name="Obstacle6" type="MeshInstance3D" parent="Simple_section" unique_id=669180326]
@@ -226,7 +230,7 @@ metadata/_edit_group_ = true
 [node name="StaticBody3D" type="StaticBody3D" parent="Simple_section/Obstacle6" unique_id=530484733]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Simple_section/Obstacle6/StaticBody3D" unique_id=1580846877]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.009887695, 0.004226327)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.009887695, 0.0025248528)
 shape = SubResource("BoxShape3D_6ev3c")
 
 [node name="Obstacle4" type="MeshInstance3D" parent="Simple_section" unique_id=1997494325]
@@ -241,14 +245,13 @@ transform = Transform3D(0.99999964, 0, -2.9802322e-08, 0, 0.9999999, 0, 0, 0, 0.
 shape = SubResource("ConvexPolygonShape3D_iacmt")
 
 [node name="Obstacle9" type="MeshInstance3D" parent="Simple_section" unique_id=1107176156]
-transform = Transform3D(2.999897, 0, 0.038561776, 0, 3, 0, -0.024857186, 0, 4.65384, 33.55521, 1.4036566, -4.143241)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 33.55521, 1.3934027, -3.6677618)
 mesh = SubResource("BoxMesh_l5x5y")
 metadata/_edit_group_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Simple_section/Obstacle9" unique_id=1948747988]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Simple_section/Obstacle9/StaticBody3D" unique_id=1599830020]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00744617)
 shape = SubResource("BoxShape3D_q8ct7")
 
 [node name="Obstacle10" type="MeshInstance3D" parent="Simple_section" unique_id=755284605]

@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 		velocity.z = direction.z * SPEED
 		
 		# Rotate $AuxScene mesh smoothly toward target movement direction
-		var target_angle = atan2(-direction.x, -direction.z)
+		var target_angle = atan2(direction.x, direction.z)
 		aux_scene.rotation.y = lerp_angle(aux_scene.rotation.y, target_angle, ROTATION_SPEED * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
